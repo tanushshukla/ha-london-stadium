@@ -1,0 +1,18 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "London Stadium",
+        "description": "Add the London Stadium integration and fetch events directly from the official website."
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect to the London Stadium website.",
+      "invalid_response": "The London Stadium website returned an unexpected response.",
+      "unknown": "Unexpected error."
+    },
+    "abort": {
+      "already_configured": "London Stadium is already configured."
+    }
+  }
+}

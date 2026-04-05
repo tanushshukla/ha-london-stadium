@@ -1,0 +1,10 @@
+{
+  "domain": "london_stadium",
+  "name": "London Stadium",
+  "codeowners": [],
+  "config_flow": true,
+  "integration_type": "service",
+  "iot_class": "cloud_polling",
+  "requirements": ["beautifulsoup4==4.12.3"],
+  "version": "0.2.0"
+}
