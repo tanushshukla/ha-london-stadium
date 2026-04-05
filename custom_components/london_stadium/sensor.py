@@ -7,10 +7,11 @@ from datetime import date
 from homeassistant.components.sensor import SensorDeviceClass, SensorEntity
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
+from homeassistant.helpers.device_registry import DeviceEntryType, DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
-from .const import DOMAIN
+from .const import DEFAULT_TITLE, DOMAIN, SOURCE_URL
 from .coordinator import LondonStadiumDataUpdateCoordinator
 
 
@@ -42,6 +43,14 @@ class LondonStadiumNextEventSensor(
         """Initialize the sensor."""
         super().__init__(coordinator)
         self._attr_unique_id = f"{entry_id}_next_event"
+        self._attr_device_info = DeviceInfo(
+            identifiers={(DOMAIN, entry_id)},
+            name=DEFAULT_TITLE,
+            manufacturer="London Stadium",
+            model="Events",
+            entry_type=DeviceEntryType.SERVICE,
+            configuration_url=SOURCE_URL,
+        )
 
     @property
     def native_value(self) -> date | None:
